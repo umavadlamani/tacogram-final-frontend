@@ -1,6 +1,6 @@
 function getPostsFromAPI() {
   // Replace this with the URL of the JSON API that returns an array of image URLs
-  const url = 'YOUR_URL_GOES_HERE';
+  const url = 'https://3000-umavadlaman-tacogramfin-hgtjtywo1uw.ws-us108.gitpod.io/posts.json';
 
   // Make a GET request to the API
   fetch(url)
@@ -11,7 +11,12 @@ function getPostsFromAPI() {
         console.log(post);
 
         // html for each post goes here
-        let html = ``;
+        let html = `
+        <div class="col-md-6 col-lg-3">
+          <img src="${post["image"]}" class="img-fluid">
+          <p>${post["body"]}</p>
+        </div>
+        `;
 
         const postsDiv = document.querySelector('#posts');
         postsDiv.innerHTML += html
